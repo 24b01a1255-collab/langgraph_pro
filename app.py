@@ -1,23 +1,25 @@
-from graph import build_graph
+##from graph import build_graph
 
 
-graph = build_graph()
+#graph = build_graph()
 
-print("IPL LangGraph Router Ready\n")
+#print("IPL LangGraph Router Ready\n")
 
-while True:
+#while True:
 
-    query = input("Question: ")
+    #query = input("Question: ")
 
-    if query.lower() == "exit":
-        break
+    #if query.lower() == "exit":
+        #break
 
-    result = graph.invoke(
-        {
-            "user_query": query
-        }
-    )
+    #result = graph.invoke(
+        #{
+           # "user_query": query
+        #}
+    #)
 
-    print()
-    print(result["final_answer"])
-    print()
+   
+   # print()
+   
+   # print(result["final_answer"])
+   # print()

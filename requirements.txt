@@ -4,3 +4,4 @@ langchain-huggingface
 chromadb
 sentence-transformers
 pypdf
+streamlit
