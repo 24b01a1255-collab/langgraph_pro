@@ -11,56 +11,7 @@ from agents.form_agent import form_node
 from agents.records_agent import records_node
 
 
-def batting_node(state):
-
-    return {
-        "final_answer":
-        f"[BATTING NODE] Query classified as batting"
-    }
-
-
-def bowling_node(state):
-
-    return {
-        "final_answer":
-        f"[BOWLING NODE] Query classified as bowling"
-    }
-
-
-def venue_node(state):
-
-    return {
-        "final_answer":
-        f"[VENUE NODE] Query classified as venue"
-    }
-
-
-def h2h_node(state):
-
-    return {
-        "final_answer":
-        f"[H2H NODE] Query classified as h2h"
-    }
-
-
-def form_node(state):
-
-    return {
-        "final_answer":
-        f"[FORM NODE] Query classified as form"
-    }
-
-
-def records_node(state):
-
-    return {
-        "final_answer":
-        f"[RECORDS NODE] Query classified as records"
-    }
-
-
 def route_query(state):
-
     return state["query_type"]
 
 
@@ -68,22 +19,20 @@ def build_graph():
 
     graph = StateGraph(IPLState)
 
+    # Nodes
     graph.add_node("router", router_node)
 
     graph.add_node("batting", batting_node)
-
     graph.add_node("bowling", bowling_node)
-
     graph.add_node("venue", venue_node)
-
     graph.add_node("h2h", h2h_node)
-
     graph.add_node("form", form_node)
-
     graph.add_node("records", records_node)
 
+    # Entry point
     graph.set_entry_point("router")
 
+    # Routing
     graph.add_conditional_edges(
         "router",
         route_query,
@@ -97,6 +46,7 @@ def build_graph():
         }
     )
 
+    # End nodes
     graph.add_edge("batting", END)
     graph.add_edge("bowling", END)
     graph.add_edge("venue", END)

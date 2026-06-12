@@ -23,8 +23,8 @@ if st.button("Ask"):
 
         with st.spinner("Thinking..."):
 
-            answer = ask_question(question)
+            result = ask_question(question)
 
         st.success("Answer")
 
-        st.write(answer)
+        st.write(result)

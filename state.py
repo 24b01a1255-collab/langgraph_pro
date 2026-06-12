@@ -6,4 +6,6 @@ class IPLState(TypedDict):
 
     query_type: str
 
+    retrieved_context: str
+
     final_answer: str
